@@ -1,9 +1,17 @@
 package br.ucdb.model;
 
-/**
- * Created by CYNNER on 05/10/2016.
- */
 public class Dicionario {
+
+    private String palavraChines;
+
+
+    public String getPalavraChines() {
+        return palavraChines;
+    }
+    public void setPalavraChines(String palavraChines) {
+        this.palavraChines = palavraChines;
+    }
+
 
 
 }
