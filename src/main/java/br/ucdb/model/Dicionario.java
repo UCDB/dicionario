@@ -1,16 +1,24 @@
 package br.ucdb.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+@Entity
 public class Dicionario {
 
-    private String palavraChines;
+    @Id
+    @GeneratedValue
+    private Integer id;
+
+    private String palavra;
+    private String significado;
 
 
-    public String getPalavraChines() {
-        return palavraChines;
-    }
-    public void setPalavraChines(String palavraChines) {
-        this.palavraChines = palavraChines;
-    }
+
+
+
 
 
 
