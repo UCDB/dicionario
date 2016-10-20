@@ -6,7 +6,6 @@ import javax.persistence.Id;
 
 @Entity
 public class Usuario {
-
     @Id
     @GeneratedValue
     private Integer id;
