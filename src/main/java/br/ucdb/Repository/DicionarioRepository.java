@@ -1,4 +1,4 @@
-package br.ucdb.Controller.Repository;
+package br.ucdb.Repository;
 
 import br.ucdb.model.Dicionario;
 import org.springframework.data.jpa.repository.JpaRepository;
