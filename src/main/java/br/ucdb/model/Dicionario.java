@@ -1,8 +1,10 @@
 package br.ucdb.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Dicionario {
@@ -11,7 +13,10 @@ public class Dicionario {
     @GeneratedValue
     private Integer id;
 
+    @NotNull
+    @Column( unique = true)
     private String palavra;
+
     private String significado;
 
     public Integer getId() {

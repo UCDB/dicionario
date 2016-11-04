@@ -1,40 +1,72 @@
 package br.ucdb.Controller;
 
 
-import br.ucdb.Service.DicionarioService;
+import br.ucdb.Repository.DicionarioRepository;
 import br.ucdb.model.Dicionario;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
+import javax.servlet.ServletException;
 import java.util.List;
 
 @RestController
 public class PalavraController {
 
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(PalavraController.class);
+
     @Autowired
-    DicionarioService dicionarioService;
+    DicionarioRepository dicionarioRepository;
 
-    @RequestMapping(value = "/dicionario", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<Dicionario> cadastrarPalavra(@RequestBody Dicionario palavra){
+   @PostMapping("/dicionario")
+    public ResponseEntity<Dicionario> cadastrarPalavra(@RequestBody Dicionario palavra) throws ServletException{
 
-        Dicionario paavraCad = dicionarioService.cadastrar(palavra);
+        if(dicionarioRepository.buscaPalavra(palavra.getPalavra()) == null){
 
-        return new ResponseEntity<Dicionario>(paavraCad, HttpStatus.OK);
+            return new ResponseEntity<Dicionario>(dicionarioRepository.save(palavra), HttpStatus.OK);
+
+        }else {
+            LOGGER.error("Erro - Palavra ja Cadastrada");
+            throw  new ServletException("Palavra ja Cadastrada");
+
+
+        }
     }
 
-    @RequestMapping(value = "/dicionario", method = RequestMethod.GET)
-    public List<Dicionario> buscarTodasPalavras(){
-        return dicionarioService.buscaTodos();
+
+    @GetMapping ("/dicionario")
+    public List<Dicionario> buscarTodasPalavras() throws ServletException{
+
+        if(dicionarioRepository.findAll() != null){
+            return dicionarioRepository.findAll();
+        }else
+            LOGGER.error("Erro - Erro ao Buscar Palavras");
+            throw new ServletException("Erro ao Buscar Palavras");
+
+
     }
 
-    @RequestMapping(value = "/dicionario", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public void excluirPalavra(@RequestBody Dicionario palavra){
-        dicionarioService.excluirPalavra(palavra);
-    }///Melhorar metodo, pois nao esta dando erro ao passar um cadastro inexistente
+    @DeleteMapping("/dicionario")
+    public void excluirPalavra(@RequestBody Dicionario palavra) throws ServletException{
+        try {
+            dicionarioRepository.delete(palavra);
+        }catch (Exception ex){
+            LOGGER.error("Erro - Erro ao deletar palavra");
+            throw new ServletException("Erro ao deletar palavra");
+        }
+    }
+
+    @PutMapping("/dicionario")
+    public ResponseEntity<Dicionario> atualizaPalavra(Dicionario palavra) throws ServletException{
+        try {
+            return new ResponseEntity<Dicionario>(dicionarioRepository.save(palavra), HttpStatus.OK);
+        }catch (Exception e){
+            LOGGER.error("Erro - Erro ao atualizar cadastro da palavra");
+            throw new ServletException("Erro ao atualizar palavra");
+        }
+
+    }
 }
