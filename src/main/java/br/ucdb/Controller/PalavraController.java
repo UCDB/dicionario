@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import javax.servlet.ServletException;
 import java.util.List;
 
@@ -25,21 +26,15 @@ public class PalavraController {
     public ResponseEntity<Dicionario> cadastrarPalavra(@RequestBody Dicionario palavra) throws ServletException{
 
         if(dicionarioRepository.buscaPalavra(palavra.getPalavra()) == null){
-
             return new ResponseEntity<Dicionario>(dicionarioRepository.save(palavra), HttpStatus.OK);
-
         }else {
             LOGGER.error("Erro - Palavra ja Cadastrada");
             throw  new ServletException("Palavra ja Cadastrada");
-
-
         }
     }
 
-
     @GetMapping ("/dicionario")
     public List<Dicionario> buscarTodasPalavras() throws ServletException{
-
         if(! dicionarioRepository.findAll().isEmpty()){
             return dicionarioRepository.findAll();
         }else
