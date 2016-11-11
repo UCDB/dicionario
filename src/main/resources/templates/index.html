@@ -1,28 +1,27 @@
-<html ng-app="sisgevApp" >
+<html ng-app="dicionarioApp" >
 <head>
-    <base href="/" />
+
     <title>Dicionario</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
+
+
+
+    <script src="./js/angular.min.js"></script>
+    <script src="./js/angular-route.js"></script>
+
+
+    <script src="./js/app.js"></script>
+    <script src="./js/main-controller.js"></script>
+
 </head>
-<body >
-<div>
-    <form method="POST" enctype="multipart/form-data" action="/files">
-        <table>
-            <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
-            <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
-        </table>
-    </form>
-</div>
+<body ng-controller="mainController">
 
-<div>
-    <input type="button" value="Load" ng-click="receber()"/>
-    <ul>
-        <li id="lista">
 
-        </li>
-    </ul>
+
+<div ng-view="ng-view">
+    <a href="#/filesForm">Upload de Imagens</a>
 </div>
 </body>
 </html>
