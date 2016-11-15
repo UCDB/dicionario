@@ -12,7 +12,7 @@ import java.util.List;
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
     @Query(value = "Select u from Usuario u where u.login=:userLogin")
-    public Usuario buscaPorId(@Param("userLogin") String login);
+    public Usuario buscaLogin(@Param("userLogin") String login);
 
     @Query("select u from Usuario u order by u.login")
     public List<Usuario> buscarUsuarios();

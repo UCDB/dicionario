@@ -14,19 +14,21 @@ public class UsuarioService {
     public Usuario buscaUsuario(Usuario usuario){
 
 
-        Usuario usuarioBuscado = usuarioRepository.buscaPorId(usuario.getLogin());
+        Usuario usuarioBuscado = usuarioRepository.buscaLogin(usuario.getLogin());
 
-        if(usuarioBuscado == null){
-            // lança exeçao
-            return null;
-        }
-        else if(!usuarioBuscado.getSenha().equals(usuario.getSenha())){
+        return usuarioBuscado;
 
-            // lança exeçao
-                return null;
-            }
-        else
-            return usuarioRepository.buscaPorId(usuario.getLogin());
+//        if(usuarioBuscado == null){
+//            // lança exeçao
+//            return null;
+//        }
+//        else if(!usuarioBuscado.getSenha().equals(usuario.getSenha())){
+//
+//            // lança exeçao
+//                return null;
+//            }
+//        else
+//            return usuarioRepository.buscaPorId(usuario.getLogin());
 
     }
 }
