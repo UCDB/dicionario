@@ -24,8 +24,12 @@ public class UsuarioController {
 
     @GetMapping("/usuario")
     public List<Usuario> buscarTodos(){
-
         return usuarioRepository.findAll();
+    }
+
+    @GetMapping("/usuario/ {cpf} ")
+    public ResponseEntity<Usuario> buscaCpf(@PathVariable String cpf){
+        return new ResponseEntity<Usuario>(usuarioRepository.buscaCpf(cpf), HttpStatus.OK);
     }
 
     @DeleteMapping("/usuario")

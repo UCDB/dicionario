@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
+	<script type="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="jquery-3.1.0.min.js"></script>
 <head>
     <meta charset="UTF-8">
     <title>Usuários</title>
 </head>
 
-<script type="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
 
 <script>
 	$(document).ready(function (){
-		$("#btSalvar").click(function(){
+
+		$("#btNovo").click(function(){
+			$("#txtNome").val()="";
+			$("#txtCPF").val()="";
+			$("#txtLogin").val()="";
+			$("#txtSenha").val()="";
+
+		});		
+
+		/*$("#btSalvar").click(function(){
 
 			txtLogin = $("txtLogin").val();
 			txtSenha = $("txtSenha").val();
 
 			$post("usuario", {login: txtLogin, senha: txtSenha})
 			alert("Salvo com sucesso!");
-		});
+		});*/
 
-		//$("#btNovo").click(function(){
 
-		//});
 	});
 
 	
@@ -28,19 +38,21 @@
 
 <body>
 <form>
-	<label>Login</label> 
+	<label>Nome</label> 
+	<input type="text" id="txtNome" placeholder="Informe seu nome">
 	<br></br>
+	<label>CPF</label> 
+	<input type="text" id="txtCPF" placeholder="Informe seu CPF">
+	<br></br>
+	<label>Login</label> 
 	<input type="text" id="txtLogin" placeholder="Informe seu e-mail">
 	<br></br>
 	<label>Senha</label>
-	<br></br>
 	<input type="password" id="txtSenha" placeholder="Crie uma senha">
-	<br></br>
-	<input type="password" id="txtConfirmarSenha" placeholder="Confirme a senha">
 	<br></br>
 	<input type="button" id="btSalvar" value="Salvar"/>
 	<input type="button" id="btNovo" value="Novo"/>
-	<input type="button" id="btExcluir" value="Excluir"/>
+
 	
 </form>
 </body>
