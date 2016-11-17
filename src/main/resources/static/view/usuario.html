@@ -2,9 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro de Usuários</title>
+    <title>Usuários</title>
 </head>
+
+<script type="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<script>
+	$(document).ready(function (){
+		$("#btSalvar").click(function(){
+
+			txtLogin = $("txtLogin").val();
+			txtSenha = $("txtSenha").val();
+
+			$post("usuario", {login: txtLogin, senha: txtSenha})
+			alert("Salvo com sucesso!");
+		});
+
+		//$("#btNovo").click(function(){
+
+		//});
+	});
+
+	
+</script>
+
 <body>
-Usuário
+<form>
+	<label>Login</label> 
+	<br></br>
+	<input type="text" id="txtLogin" placeholder="Informe seu e-mail">
+	<br></br>
+	<label>Senha</label>
+	<br></br>
+	<input type="password" id="txtSenha" placeholder="Crie uma senha">
+	<br></br>
+	<input type="password" id="txtConfirmarSenha" placeholder="Confirme a senha">
+	<br></br>
+	<input type="button" id="btSalvar" value="Salvar"/>
+	<input type="button" id="btNovo" value="Novo"/>
+	<input type="button" id="btExcluir" value="Excluir"/>
+	
+</form>
 </body>
 </html>

@@ -23,20 +23,20 @@ public class UsuarioController {
     }
 
     @GetMapping("/usuario")
-    public List<Usuario> buscarUsuarios(){
+    public List<Usuario> buscarTodos(){
+
         return usuarioRepository.findAll();
-    }
-
-    @PutMapping("/usuario")
-    public ResponseEntity<Usuario> atualizaCadastro(Usuario usuario){
-            return new ResponseEntity<Usuario>(usuarioRepository.save(usuario), HttpStatus.OK);
-
     }
 
     @DeleteMapping("/usuario")
     public void excluirUsuario(@RequestBody Usuario usuario){
 
             usuarioRepository.delete(usuario);
+    }
+
+    @PutMapping("/usuario")
+    public ResponseEntity<Usuario> atualizarCadastro(@RequestBody Usuario usuario){
+        return new ResponseEntity<Usuario>(usuarioRepository.save(usuario), HttpStatus.OK);
 
     }
 
