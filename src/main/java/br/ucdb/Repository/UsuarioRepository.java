@@ -11,12 +11,15 @@ import java.util.List;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
-    @Query(value = "select u from Uuario u where u.cpf=:cpf")
+    @Query(value = "Select u from Usuario u where u.login=:userLogin")
+    public Usuario buscaPorId(@Param("userLogin") String login);
+
+    @Query("select u from Usuario u order by u.login")
+    public List<Usuario> buscarUsuarios();
+
+    @Query(value = "select u from Usuario u where u.cpf=:cpf")
     public Usuario buscaCpf(@Param("cpf") String cpf);
 
     @Query(value = "select u from Usuario u where u.nome=:nome")
     public Usuario buscaNome (@Param("nome") String nome);
-
-    @Query("select u from Usuario u order by u.login")
-    public List<Usuario> buscarUsuarios();
 }
