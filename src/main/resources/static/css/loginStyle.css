@@ -1,0 +1,47 @@
+fieldset {
+    width:300px;
+    padding: 0px 20px;
+  	margin-bottom: 10px;
+  	float: left;
+    border: 0px;
+    color: black;
+    background-color: #F4F7ED;
+    
+}
+ 
+fieldset input[type="text"]{
+	margin-left: 20px;
+	padding: 14px 30px;
+	background-color: transparent;
+	color: black;
+	border: 0px;
+}
+.button {
+    background-color: #F4F7ED;
+    border: none;
+    color: #0F1021;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-weight: 900;
+    font-family: Georgia;
+}
+
+body {
+	background-color: #1D242B;
+}
+
+div {
+	margin: 150px auto;
+	width: 300px;
+}
+
+::-webkit-input-placeholder  { 
+	color:#0F1021; 
+	font-weight: 900;
+	font-family: Georgia;
+}

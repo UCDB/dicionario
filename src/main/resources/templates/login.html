@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="./js/angular.min.js"></script>
+	<script src="./js/angular-route.js"></script>
+
+	<script src="./js/app.js"></script>
+	<!-- JS --> 
+	<script src="./js/jquery.min.js"></script>
+    <script src="./js/controller/loginControle.js"></script>
+
+	<link rel="stylesheet" href="./recursos/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="./css/loginStyle.css"/>
+	
+    <title>Login</title>
+
+	<!-- PARA RECONHECER PONTUAÇÃO -->
+	<meta charset="UTF-8"/>
+</head>
+<body>
+<form id="form-login">
+
+<div>
+	
+	<fieldset>
+		<i class="fa fa-user" aria-hidden="true"></i>
+		<input type="text" id="usuario" placeholder="Login"/>
+	</fieldset>
+
+	<fieldset>
+		<i class="fa fa-key" aria-hidden="true"></i>
+		<input type="text" id="senha" placeholder="Senha"/>
+	</fieldset>
+
+	<input type="button" onclick="logar()" value="entrar" id="button_login" class="button"/>
+	
+</div>
+</form>
+
+
+</body>
+</html>

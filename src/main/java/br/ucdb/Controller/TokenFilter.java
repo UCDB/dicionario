@@ -21,7 +21,7 @@ public class TokenFilter extends GenericFilterBean {
             throws IOException, ServletException {
 
         HttpServletRequest req = (HttpServletRequest) servletRequest;
-        String header = ((HttpServletRequest) servletRequest).getHeader("Authorization");
+        String header = ((HttpServletRequest) servletRequest).getHeader("Autorizacao");
 
         if(header==null || !header.startsWith("Bearer ")){
             throw new ServletException("Token Invalido ou Inesistente");
@@ -30,7 +30,7 @@ public class TokenFilter extends GenericFilterBean {
 
         // Verificar e validar token
         try {
-            Jwts.parser().setSigningKey("banana").parseClaimsJws(token).getBody();
+            Jwts.parser().setSigningKey("dicionario").parseClaimsJws(token).getBody();
         }catch (SignatureException e){
             throw new ServletException("Token Invalido ");
         }

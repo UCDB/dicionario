@@ -18,17 +18,6 @@ public class UsuarioService {
 
         return usuarioBuscado;
 
-//        if(usuarioBuscado == null){
-//            // lança exeçao
-//            return null;
-//        }
-//        else if(!usuarioBuscado.getSenha().equals(usuario.getSenha())){
-//
-//            // lança exeçao
-//                return null;
-//            }
-//        else
-//            return usuarioRepository.buscaPorId(usuario.getLogin());
 
     }
 }
