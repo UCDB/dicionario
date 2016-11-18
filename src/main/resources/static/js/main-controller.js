@@ -1,4 +1,4 @@
-dicionarioApp.controller("mainController",['$scope', '$location', function ($scope, $location) {
+dicionarioApp.controller("mainController",['$scope', '$location', function ($scope, $location) {git
 
 
 
