@@ -7,10 +7,6 @@ dicionarioApp.config(function ($routeProvider,$locationProvider ) {
         .when("/login",{
             templateUrl : 'view/login.html',
             controller : 'loginController'
-        })
-        .when("/filesForm",{
-            templateUrl : 'view/fileUploadTest.html',
-
         }).otherwise({redirectTo:'/'});
 
 

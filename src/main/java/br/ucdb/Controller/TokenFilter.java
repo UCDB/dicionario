@@ -11,9 +11,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-/**
- * Created by CYNNER on 15/11/2016.
- */
 public class TokenFilter extends GenericFilterBean {
 
     @Override
@@ -21,7 +18,7 @@ public class TokenFilter extends GenericFilterBean {
             throws IOException, ServletException {
 
         HttpServletRequest req = (HttpServletRequest) servletRequest;
-        String header = ((HttpServletRequest) servletRequest).getHeader("Autorizacao");
+        String header = ((HttpServletRequest) servletRequest).getHeader("Autorization");
 
         if(header==null || !header.startsWith("Bearer ")){
             throw new ServletException("Token Invalido ou Inesistente");
@@ -34,6 +31,7 @@ public class TokenFilter extends GenericFilterBean {
         }catch (SignatureException e){
             throw new ServletException("Token Invalido ");
         }
+
         filterChain.doFilter(servletRequest,servletResponse);
 
     }

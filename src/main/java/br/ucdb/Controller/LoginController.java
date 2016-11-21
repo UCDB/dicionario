@@ -31,7 +31,7 @@ public class LoginController {
 
     @RequestMapping(value = "/autenticar", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public LoginResponse autenticar(@RequestBody Usuario usuario) throws ServletException{
-            System.out.print(usuario.getLogin() +"  " +usuario.getSenha());
+
         if(usuario.getLogin() == null || usuario.getSenha() == null){
             LOGGER.error("Nome e senha são obrigatorios");
             throw new ServletException("Nome e senha são obrigatorios");

@@ -23,6 +23,8 @@ public class DicionarioApiApplication {
 		return frb;
 	}
 
+
+
 	public static void main(String[] args) {
 		SpringApplication.run(DicionarioApiApplication.class, args);
 	}
