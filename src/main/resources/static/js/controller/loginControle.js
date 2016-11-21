@@ -18,8 +18,9 @@ function logar(){
             data: JSON.stringify(objUsuario),
             success: function (resut) {
 
+
                 var token = resut.data;
-               //console.log(resut);
+               window.alert(token);
 
 
 
