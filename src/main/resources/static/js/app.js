@@ -2,16 +2,21 @@ var dicionarioApp = angular.module("dicionarioApp",['ngRoute']);
 
 dicionarioApp.config(function ($routeProvider,$locationProvider ) {
 
-
     $routeProvider
         .when("/login",{
             templateUrl : 'view/login.html',
             controller : 'loginController'
-        }).when("/cad-usuario",{
+        })
+        .when("/cad-usuario",{
         templateUrl : 'view/usuario.html',
         controller : 'usuarioController'
-    }).otherwise({redirectTo:'/'});
+        })
+        .when("/pagina-principal",{
+        templateUrl : 'view/paginaPrincipal.html',
+        controller : 'paginaInicial-controller'
+        })
+        .otherwise({redirectTo:'/'});
 
-    // $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true);
 
 });

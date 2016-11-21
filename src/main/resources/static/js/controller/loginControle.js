@@ -19,7 +19,7 @@ function logar(){
             success: function (resut) {
 
                 var token = resut.data;
-                console.log(resut);
+               //console.log(resut);
 
 
 
