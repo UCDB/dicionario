@@ -1,98 +1,86 @@
-<header>
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-                <li><a href="/cad-usuario">Cadastar Usuário</a></li>
-                <li><a href="#">Sair</a></li>
-            </ul>
+<div class="container">
+    <section style="width:100%">
+
+        <div id="divBusca" class="col-sm-3">
+            <input type="text" id="textBusca" class="form-control" placeholder="Buscar..."/>
         </div>
-    </nav>
-</header>
-
-<br/>
-
-<section style="width:100%; margin-top: 50px;">
-
-    <div id="divBusca" class="col-sm-3">
-        <input type="text" id="textBusca" class="form-control" placeholder="Buscar..."/>
-    </div>
 
 
 
-    <table class="table" style= "margin-top:40px;">
-        <tbody class="col-md-6">
-        <tr >
-            <th> <img src="" width="20"  style="height:20px; border-radius:50%;" class="img-responsive" alt="Responsive image"/>
-            </th>
-            <td> <a href="significadoIlha.html" id="maça"></a>Ilha</td>
-            <td class="editRowButton" align="center"> <a href="novaPalavra.html"> <i class="fa fa-pencil" aria-hidden="true"></i></a> </td>
-            <td  class="deleteRowButton" align="center"><i class="fa fa-trash" aria-hidden="true"></i> </td>
-        </tr>
+        <table class="table" style= "margin-top:40px;">
+            <tbody class="col-md-6">
+            <tr >
+                <th> <img src="" width="20"  style="height:20px; border-radius:50%;" class="img-responsive" alt="Responsive image"/>
+                </th>
+                <td> <a href="significadoIlha.html" id="maça"></a>Ilha</td>
+                <td class="editRowButton" align="center"> <a href="novaPalavra.html"> <i class="fa fa-pencil" aria-hidden="true"></i></a> </td>
+                <td  class="deleteRowButton" align="center"><i class="fa fa-trash" aria-hidden="true"></i> </td>
+            </tr>
 
-        <tr>
-            <th> <img src="" width="20"  style="height:20px; border-radius:50%;" class="img-responsive" alt="Responsive image"/>
-            </th>
-            <td class="maça"> <a href="significadoMaca.html" id="maça">Maçã </a></td>
-            <td class="editRowButton" align="center"><a href="novaPalavra.html"> <i class="fa fa-pencil" aria-hidden="true"></i></a> </td>
-            <td  class="deleteRowButton" align="center"><i class="fa fa-trash" aria-hidden="true"></i> </td>
-        </tr>
+            <tr>
+                <th> <img src="" width="20"  style="height:20px; border-radius:50%;" class="img-responsive" alt="Responsive image"/>
+                </th>
+                <td class="maça"> <a href="significadoMaca.html" id="maça">Maçã </a></td>
+                <td class="editRowButton" align="center"><a href="novaPalavra.html"> <i class="fa fa-pencil" aria-hidden="true"></i></a> </td>
+                <td  class="deleteRowButton" align="center"><i class="fa fa-trash" aria-hidden="true"></i> </td>
+            </tr>
 
-        <tr>
-            <th> <img src="" width="20"  style="height:20px; border-radius:50%;" class="img-responsive" alt="Responsive image"/>
-            </th>
-            <td><a href="significadoTigre.html" id="tigre">Tigre</a></td>
-            <td class="editRowButton" align="center"><a href="novaPalavra.html"> <i class="fa fa-pencil" aria-hidden="true"></i></a> </td>
-            <td  class="deleteRowButton" align="center"><i class="fa fa-trash" aria-hidden="true"></i> </td>
-        </tr>
+            <tr>
+                <th> <img src="" width="20"  style="height:20px; border-radius:50%;" class="img-responsive" alt="Responsive image"/>
+                </th>
+                <td><a href="significadoTigre.html" id="tigre">Tigre</a></td>
+                <td class="editRowButton" align="center"><a href="novaPalavra.html"> <i class="fa fa-pencil" aria-hidden="true"></i></a> </td>
+                <td  class="deleteRowButton" align="center"><i class="fa fa-trash" aria-hidden="true"></i> </td>
+            </tr>
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-        Nova palavra
-    </button>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            Nova palavra
+        </button>
 
-    <!-- Modal -->
-    <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-            <h4 class="modal-title" id="myModalLabel">Nova palavra</h4>
-          </div>
-          <div class="modal-body">
-
-
-            <form class="form-horizontal">
-              <div class="form-group">
-                <label class="col-sm-2 control-label">Título</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputPassword" placeholder="Título palavra">
-                </div>
+        <!-- Modal -->
+        <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">Nova palavra</h4>
               </div>
-              <div class="form-group">
-                <label for="inputPassword" class="col-sm-2 control-label">Descricao</label>
-                <div class="col-sm-10">
-                  <textarea placeholder="Descrição..." class="form-control" rows="3"></textarea>
-                </div>
+              <div class="modal-body">
+
+
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Título</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="inputPassword" placeholder="Título palavra">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPassword" class="col-sm-2 control-label">Descricao</label>
+                    <div class="col-sm-10">
+                      <textarea placeholder="Descrição..." class="form-control" rows="3"></textarea>
+                    </div>
+                  </div>
+
+
+                  <div class="form-group">
+                    <label for="inputPassword" class="col-sm-2 control-label">Imagem destaque</label>
+                    <div class="col-sm-10">
+                      <input type="file">
+                    </div>
+                  </div>
+                </form>
+
               </div>
-
-
-              <div class="form-group">
-                <label for="inputPassword" class="col-sm-2 control-label">Imagem destaque</label>
-                <div class="col-sm-10">
-                  <input type="file">
-                </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">cancelar</button>
+                <button type="button" class="btn btn-primary">Salvar</button>
               </div>
-            </form>
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">cancelar</button>
-            <button type="button" class="btn btn-primary">Salvar</button>
-          </div>
-        </div>
-        </div> -->
-</section>
+            </div>
+            </div> -->
+    </section>
+</div>
