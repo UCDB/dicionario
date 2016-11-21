@@ -4,29 +4,30 @@
 	<form>
 		<div class="form-group">
 			<label >Nome</label>
-			<input class="form-control" type="text" id="txtNome" placeholder="Informe seu nome">
+			<input class="form-control" type="text" id="txtNome" placeholder="Informe seu nome" ng-model="usuario.nome">
 		</div>
 
 		<div class="form-group">
 			<label >CPF</label>
-			<input class="form-control" type="text" id="txtCPF" placeholder="Informe seu CPF">
+			<input class="form-control" type="text" id="txtCPF" placeholder="Informe seu CPF" ng-model="usuario.cpf">
 		</div>
 
 		<div class="form-group">
 			<label >Login</label>
-			<input class="form-control" type="email" id="txtLogin" placeholder="Informe seu e-mail">
+			<input class="form-control" type="email" id="txtLogin" placeholder="Informe seu e-mail" ng-model="usuario.login">
 		</div>
 
 		<div class="form-group">
 			<label >Senha</label>
-			<input class="form-control" type="text" id="txtSenha" placeholder="Informe uma senha">
+			<input class="form-control" type="text" id="txtSenha" placeholder="Informe uma senha" ng-model="usuario.senha">
 		</div>
 
 		<div class="form-group">
-			<button type="button" class="btn btn-danger">Cancelar</button>
-			<button type="button" class="btn btn-primary">Salvar</button>
-			<button type="button" class="btn btn-default">Novo</button>
+			<button type="button" class="btn btn-danger" ng-click="cancelar()">Cancelar</button>
+			<button type="button" class="btn btn-primary" ng-click="salvar()">Salvar</button>
 		</div>
+
+		<div class="row"></div>
 
 		<div class="form-group">
 
