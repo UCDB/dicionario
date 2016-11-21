@@ -7,8 +7,10 @@ dicionarioApp.config(function ($routeProvider,$locationProvider ) {
         .when("/login",{
             templateUrl : 'view/login.html',
             controller : 'loginController'
-        }).otherwise({redirectTo:'/'});
-
+        }).when("/cad-usuario",{
+        templateUrl : 'view/usuario.html',
+        controller : 'usuarioController'
+    }).otherwise({redirectTo:'/'});
 
     // $locationProvider.html5Mode(true);
 
