@@ -1,0 +1,46 @@
+<section style="width:50%; margin-top: 50px;">
+    <div class="modal-body" style="margin-top: 17px;">
+
+
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Título</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="palavra" placeholder="Título Palavra"><br/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="descricao" class="col-sm-2 control-label">Descrição</label>
+                <div class="col-sm-10">
+                    <textarea placeholder="Descrição..." class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="inputPassword" class="col-sm-2 control-label">Imagem Destaque</label>
+                <div class="col-sm-10">
+                    <div id="wrapper" style="margin-top: 10px;">
+                      <span class="btn btn-default botao-file">
+                        Escolher Imagem
+                        <input id="fileUpload" multiple="multiple" type="file"/>
+                      </span>
+                        <div id="image-holder"></div>
+                    </div>
+                </div>
+
+                <div class="col-sm-10" style="margin-top:10px; ">
+                    <span id=limpar_campo class="btn btn-default" onclick="limpar();" >Remover</span>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="modal-footer" style="margin-top:300px;">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary">Salvar</button>
+    </div>
+    </div>
+    </div>
+    </div>
+</section>
