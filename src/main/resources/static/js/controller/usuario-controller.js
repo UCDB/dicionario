@@ -26,6 +26,7 @@ dicionarioApp.controller("usuarioController", function($scope,$http,$location){
 
     };
 
+
     $scope.cadastrarUsuario = function () {
         $scope.visualizar = "true";
     };
