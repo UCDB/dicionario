@@ -27,13 +27,24 @@ dicionarioApp.controller("usuarioController", function($scope,$http,$location){
     };
 
 
+    $scope.editar = function (id) {
+
+
+        for(var i = 0; i < $scope.usuarios.length;i++){
+            if(id == $scope.usuarios[i].id){
+                $scope.usuario= $scope.usuarios[i];
+                $scope.visualizar = "true";
+            }
+        }
+    };
+
     $scope.cadastrarUsuario = function () {
         $scope.visualizar = "true";
     };
     $scope.cancelar = function () {
         $scope.visualizar = "";
         $scope.usuario = {};
-        $scope.usuario.login = "";
+
     }
 
 

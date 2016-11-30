@@ -1,24 +1,24 @@
 dicionarioApp.controller("paginaInicial-controller",['$scope', '$location','$http', function ($scope, $location,$http) {
 
-    $(document).ready(function(){
+
         carregaPalavras();
-    });
+
 
 // Função Busca Palavra Jquery
-    $(function(){
-        $("#textBusca").keyup(function(){
 
-            //pega o class da tabela
-            var tabela = 'table';
+    $("#textBusca").keyup(function(){
 
-            if( $(this).val() != ""){
-                $("."+tabela+" tbody>tr").hide();
-                $("."+tabela+" td:contains-ci('" + $(this).val() + "')").parent("tr").show();
-            } else{
-                $("."+tabela+" tbody>tr").show();
-            }
-        });
+        //pega o class da tabela
+        var tabela = 'table';
+
+        if( $(this).val() != ""){
+            $("."+tabela+" tbody>tr").hide();
+            $("."+tabela+" td:contains-ci('" + $(this).val() + "')").parent("tr").show();
+        } else{
+            $("."+tabela+" tbody>tr").show();
+        }
     });
+
     $.extend(	$.expr[":"], {
         "contains-ci": function(elem, i, match, array) {
             return (elem.textContent || elem.innerText || $(elem).text() || "").toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
@@ -100,6 +100,7 @@ dicionarioApp.controller("paginaInicial-controller",['$scope', '$location','$htt
 
         var tipo;
         var acao;
+
         if($('#idPalavra').val() == ''){
             tipo = 'POST';
             acao = 'inserida';
