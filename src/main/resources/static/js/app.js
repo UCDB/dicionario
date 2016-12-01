@@ -15,6 +15,11 @@ dicionarioApp.config(function ($routeProvider,$locationProvider ) {
         templateUrl : 'view/paginaPrincipal.html',
         controller : 'paginaInicial-controller'
         })
+        .when("/cad-palavra",{
+        templateUrl : 'view/inserirPalavra.html',
+            controller: 'inserir-controller'
+
+    })
         .otherwise({redirectTo:'/'});
 
    // $locationProvider.html5Mode(true);
