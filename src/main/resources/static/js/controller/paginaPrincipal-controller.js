@@ -32,17 +32,33 @@ dicionarioApp.controller("paginaInicial-controller",['$scope', '$location','$htt
         });
     });
 
-    var objPalavra = {};
+    var objPalavra = [];
 
     function carregaPalavras(){
 
         $http.get("/dicionario").then(
             function (response) {
-                objPalavras = response.data;
+                objPalavra = response.data;
+
+
+
+                for(i=0;i<objPalavra.length;i++){
+                    //adiciona como um filho
+                    $('#lista-palavra').append('<tr class="linha-palavra" data-id="'+objPalavra[i].id+'">'+
+                        '<td>'+objPalavra[i].id+'</td>'+
+                        '<td>'+objPalavra[i].palavra+'</td>'+
+                        '<td>'+objPalavra[i].significado+'</td>'+
+                        '<td class="editRowButton" align="center"> <a href="novaPalavra.html"> <i class="fa fa-pencil" aria-hidden="true"></i></a> </td>'+
+                        '<td  class="deleteRowButton" align="center"><i class="fa fa-trash" aria-hidden="true"></i> </td>'+
+                        '</tr>');
+                }
+
+
                 //alert('Carregado !');
             },function (response) {
                 alert('Erro ao buscar palavras !');
             });
+
 
 
         /*$.get("palavras", function(data,status){
