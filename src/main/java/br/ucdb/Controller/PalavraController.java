@@ -43,10 +43,10 @@ public class PalavraController {
 
     }
 
-    @DeleteMapping("/dicionario")
-    public void excluirPalavra(@RequestBody Dicionario palavra) throws ServletException{
+    @DeleteMapping("/dicionario/{id}")
+    public void excluirPalavra(@PathVariable Integer id) throws ServletException{
         try {
-            dicionarioRepository.delete(palavra);
+            dicionarioRepository.delete(id);
         }catch (Exception ex){
             LOGGER.error("Erro - Erro ao deletar palavra");
             throw new ServletException("Erro ao deletar palavra");
@@ -62,7 +62,7 @@ public class PalavraController {
     }
 
     @PutMapping("/dicionario")
-    public ResponseEntity<Dicionario> atualizaPalavra(Dicionario palavra) throws ServletException{
+    public ResponseEntity<Dicionario> atualizaPalavra(@RequestBody Dicionario palavra) throws ServletException{
         try {
             return new ResponseEntity<Dicionario>(dicionarioRepository.save(palavra), HttpStatus.OK);
         }catch (Exception e){

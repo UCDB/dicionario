@@ -13,14 +13,32 @@ dicionarioApp.controller("inserir-controller",['$scope', '$location','dataShare'
 
     $scope.cadastrarPalavra = function () {
 
-        $http.post("/dicionario", $scope.palavra).then(
-            function (response) {
-                window.alert("Cadastrado ");
-                $location.path("/pagina-principal");
-            }, function erro(response) {
+        if ($scope.palavra.id ==null){
 
-                window.alert("Erro ");
-            });
+            $http.post("/dicionario", $scope.palavra).then(
+                function (response) {
+                    window.alert("Cadastrado ");
+                    $location.path("/pagina-principal");
+                }, function erro(response) {
+
+                    window.alert("Erro ");
+                });
+
+        }else{
+
+
+            $http.put("/dicionario", $scope.palavra).then(
+                function (response) {
+                    window.alert("Editado com sucesso ");
+                    $location.path("/pagina-principal");
+                }, function erro(response) {
+
+                    window.alert("Erro ");
+                });
+
+        }
+
+
 
     };
 

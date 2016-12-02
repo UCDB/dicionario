@@ -2,7 +2,7 @@ dicionarioApp.controller("paginaInicial-controller",['$scope', '$location','$htt
 
     $scope.palavras = [];
 
-        carregaPalavras();
+    carregaPalavras();
 
     $scope.cadPalavra = function () {
         $location.path("/cad-palavra");
@@ -19,7 +19,7 @@ dicionarioApp.controller("paginaInicial-controller",['$scope', '$location','$htt
                 alert('Erro ao buscar palavras !');
             });
     }
-    
+
     $scope.editar = function (id) {
 
         for(var i = 0; i < $scope.palavras.length;i++){
@@ -30,6 +30,25 @@ dicionarioApp.controller("paginaInicial-controller",['$scope', '$location','$htt
 
             }
         }
+    };
+
+
+    $scope.excluir = function (id) {
+
+
+
+        $http.delete("/dicionario/"+id).then(
+            function (response) {
+                window.alert("Excluido ");
+                carregaPalavras();
+            }, function erro(response) {
+
+                window.alert("Erro ");
+            });
+
+
+
+
     }
 
 
