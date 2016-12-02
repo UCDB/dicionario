@@ -1,15 +1,8 @@
-dicionarioApp.controller("paginaInicial-controller",['$scope', '$location','$http', function ($scope, $location,$http) {
+dicionarioApp.controller("paginaInicial-controller",['$scope', '$location','$http','dataShare', function ($scope, $location,$http,dataShare) {
 
     $scope.palavras = [];
 
         carregaPalavras();
-
-// Função Delete Jquery
-    $(function() {
-        $('.deleteRowButton').click(function(){
-            $(this).parents('tr').first().remove();
-        });
-    });
 
     $scope.cadPalavra = function () {
         $location.path("/cad-palavra");
@@ -25,6 +18,18 @@ dicionarioApp.controller("paginaInicial-controller",['$scope', '$location','$htt
             },function (response) {
                 alert('Erro ao buscar palavras !');
             });
+    }
+    
+    $scope.editar = function (id) {
+
+        for(var i = 0; i < $scope.palavras.length;i++){
+            if(id == $scope.palavras[i].id){
+
+                dataShare.setData($scope.palavras[i]);
+                $location.path("/cad-palavra");
+
+            }
+        }
     }
 
 

@@ -23,7 +23,7 @@
                 <td >{{palavra.id}} </td>
                 <td >{{palavra.palavra}}</td>
                 <td >{{palavra.significado}}</td>
-                <td > <a ng-click="editar(usuario.id)"> <i class="fa fa-pencil" aria-hidden="true"></i></a> </td>
+                <td > <a ng-click="editar(palavra.id)">{{palavra.id}} <i class="fa fa-pencil" aria-hidden="true"></i></a> </td>
                 <td  class="deleteRowButton" align="center"><i class="fa fa-trash" aria-hidden="true"></i> </td>
             </tr>
 
@@ -35,46 +35,6 @@
             Nova palavra
         </button>
 
-        <!-- Modal -->
-        <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                <h4 class="modal-title" id="myModalLabel">Nova palavra</h4>
-              </div>
-              <div class="modal-body">
 
-
-                <form class="form-horizontal">
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label">Título</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputPassword" placeholder="Título palavra">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputPassword" class="col-sm-2 control-label">Descricao</label>
-                    <div class="col-sm-10">
-                      <textarea placeholder="Descrição..." class="form-control" rows="3"></textarea>
-                    </div>
-                  </div>
-
-
-                  <div class="form-group">
-                    <label for="inputPassword" class="col-sm-2 control-label">Imagem destaque</label>
-                    <div class="col-sm-10">
-                      <input type="file">
-                    </div>
-                  </div>
-                </form>
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">cancelar</button>
-                <button type="button" class="btn btn-primary">Salvar</button>
-              </div>
-            </div>
-            </div> -->
     </section>
 </div>

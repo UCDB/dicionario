@@ -1,4 +1,4 @@
-dicionarioApp.controller("usuarioController", function($scope,$http,$location){
+dicionarioApp.controller("usuarioController", function($scope,$http,$location,dataShare){
     //$scope.usuarios =[];
 
     $(document).ready(function() {

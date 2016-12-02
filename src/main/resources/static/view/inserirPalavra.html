@@ -11,13 +11,13 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Título</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="palavra" placeholder="Título Palavra"><br/>
+                        <input type="text" class="form-control" id="palavra" placeholder="Título Palavra" ng-model="palavra.palavra"><br/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label  class="col-sm-2 control-label">Descrição</label>
                     <div class="col-sm-10">
-                        <textarea placeholder="Descrição..." class="form-control" rows="3"></textarea>
+                        <textarea placeholder="Descrição..." class="form-control" rows="3" ng-model="palavra.significado"></textarea>
                     </div>
                 </div>
 
@@ -39,8 +39,8 @@
             </form>
         </div>
         <div class="modal-footer" style="margin-top:300px;">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-primary" onclik="salvar();">Salvar</button>
+            <button type="button" class="btn btn-default" ng-click="cancelar()">Cancelar</button>
+            <button type="button" class="btn btn-primary" ng-click="cadastrarPalavra();">Salvar</button>
         </div>
     </section>
 </form>
