@@ -51,7 +51,7 @@ public class UsuarioController {
 
     }
 
-    @GetMapping("/usuario/ {cpf} ")
+    @GetMapping("/usuario/{cpf}")
     public ResponseEntity<Usuario> buscaCpf(@PathVariable String cpf) throws ServletException{
 
         if(usuarioRepository.buscaCpf(cpf) == null){
@@ -61,10 +61,14 @@ public class UsuarioController {
         return new ResponseEntity<Usuario>(usuarioRepository.buscaCpf(cpf), HttpStatus.OK);
     }
 
-    @DeleteMapping("/usuario")
-    public void excluirUsuario(@RequestBody Usuario usuario){
-
-        usuarioRepository.delete(usuario);
+    @DeleteMapping("/usuario/{id}")
+    public void excluirUsuario(@PathVariable Integer id) throws ServletException{
+        try {
+            usuarioRepository.delete(id);
+        }catch (Exception ex){
+            LOGGER.error("Erro - Erro ao deletar usuario");
+            throw new ServletException("Erro ao deletar usuario");
+        }
     }
 
     @PutMapping("/usuario")

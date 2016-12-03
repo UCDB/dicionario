@@ -23,32 +23,33 @@ dicionarioApp.controller("usuarioController", function($scope,$http,$location,da
     $scope.carregarLista();
 
     // metodos para cadastrar e alterar usuario
-    if($scope.usuario.id != " "){
+
+
         $scope.cadastrar = function () {
+
+            if($scope.usuario.id == null){
 
             $http.post("/usuario", $scope.usuario).then(
                 function (response) {
                     window.alert("Cadastrado ");
+                    $scope.usuario = {};
                     $scope.carregarLista();
                 }, function erro(response) {
 
                     window.alert("Erro ");
                 });
+        }else{
+                $http.put("/usuario", $scope.usuario).then(
+                    function (response) {
+                        window.alert("Alterado com sucesso ");
+                        $scope.usuario = {};
+                        $scope.carregarLista();
+                    }, function erro(response) {
+                        window.alert("Erro ");
+                    });
+            }
 
-
-        };
-    }else{
-        $scope.alterar = function () {
-
-            $http.put("/usuario", $scope.usuario).then(
-                function (response) {
-                    window.alert("Alterado com sucesso ");
-                }, function erro(response) {
-                    window.alert("Erro ");
-                });
-            $scope.carregarLista();
-        };
-    }
+    };
 
     //pegar o usuario da tabela e jogar no formulario de cadastro
     $scope.editar = function (id) {
@@ -76,9 +77,10 @@ dicionarioApp.controller("usuarioController", function($scope,$http,$location,da
     };
 
     $scope.excluir = function (id) {
-        $http.delete("/usuario", $scope.id).then(
+        $http.delete("/usuario/"+id).then(
             function (response) {
                 window.alert("Excluido com sucesso ");
+                $scope.carregarLista();
             }, function erro(response) {
                 window.alert("Erro ");
             });
@@ -86,15 +88,3 @@ dicionarioApp.controller("usuarioController", function($scope,$http,$location,da
 
 });
 
-// function cadastrarUsuario(){
-//     $('.tela-cadastro').slideDown();
-//     $('#btnCadastrar').fadeOut();
-//
-// }
-//
-// function esconderCadastro(){
-//     $('.tela-cadastro').slideUp();
-//     $('#btnCadastrar').fadeIn();
-//
-//     $('.tela-cadastro input').val('');
-// }
