@@ -35,8 +35,6 @@ dicionarioApp.controller("paginaInicial-controller",['$scope', '$location','$htt
 
     $scope.excluir = function (id) {
 
-
-
         $http.delete("/dicionario/"+id).then(
             function (response) {
                 window.alert("Excluido ");
@@ -45,10 +43,6 @@ dicionarioApp.controller("paginaInicial-controller",['$scope', '$location','$htt
 
                 window.alert("Erro ");
             });
-
-
-
-
     }
 
 

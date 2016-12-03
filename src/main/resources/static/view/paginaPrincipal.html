@@ -18,7 +18,7 @@
 
             </thead>
             <tbody>
-            <tr ng-repeat="palavra in palavras | filter:busca">
+            <tr ng-repeat="palavra in palavras | orderBy : 'palavra'| filter:busca">
 
                 <td >{{palavra.id}} </td>
                 <td >{{palavra.palavra}}</td>
