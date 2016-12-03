@@ -8,12 +8,16 @@ dicionarioApp.config(function ($routeProvider,$locationProvider ) {
             controller : 'loginController'
         })
         .when("/cad-usuario",{
-        templateUrl : 'view/usuario.html',
-        controller : 'usuarioController'
+            templateUrl : 'view/usuario.html',
+            controller : 'usuarioController'
         })
         .when("/pagina-principal",{
-        templateUrl : 'view/paginaPrincipal.html',
-        controller : 'paginaInicial-controller'
+            templateUrl : 'view/paginaPrincipal.html',
+            controller : 'paginaInicial-controller'
+        })
+        .when("/inserir-palavra",{
+            templateUrl: 'view/inserirPalavra.html',
+            controller: 'inserirPalavra-controller'
         })
         .when("/cad-palavra",{
         templateUrl : 'view/inserirPalavra.html',
