@@ -1,9 +1,10 @@
 dicionarioApp.controller("usuarioController", function($scope,$http,$location){
 
+
     $scope.usuario ={};
 
     $scope.visualizar= "";
-    carregarLista();
+
 
     //busca os usuarios cadastrados no banco e mostra na tabela
     $scope.carregarLista = function() {
@@ -17,18 +18,21 @@ dicionarioApp.controller("usuarioController", function($scope,$http,$location){
             });
     };
 
+    $scope.carregarLista();
 
     // metodos para cadastrar e alterar usuario
-    if($scope.usuario.id != ""){
+    if($scope.usuario.id != " "){
         $scope.cadastrar = function () {
 
             $http.post("/usuario", $scope.usuario).then(
                 function (response) {
                     window.alert("Cadastrado ");
+                    $scope.carregarLista();
                 }, function erro(response) {
 
                     window.alert("Erro ");
                 });
+
 
         };
     }else{
@@ -40,6 +44,7 @@ dicionarioApp.controller("usuarioController", function($scope,$http,$location){
                 }, function erro(response) {
                     window.alert("Erro ");
                 });
+            $scope.carregarLista();
         };
     }
 
@@ -58,6 +63,8 @@ dicionarioApp.controller("usuarioController", function($scope,$http,$location){
     // visualizar o formulario de cadastro de usuario ao clicar no botão "Cadastrar Usuário"
     $scope.cadastrarUsuario = function () {
         $scope.visualizar = "true";
+        $scope.usuario = {};
+
     };
 
     //ocultar e limpar o formulario de cadastro de usuario
