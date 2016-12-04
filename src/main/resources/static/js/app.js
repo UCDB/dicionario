@@ -23,6 +23,12 @@ dicionarioApp.config(function ($routeProvider,$locationProvider ) {
     })
         .otherwise({redirectTo:'/'});
 
-   // $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true);
+
+});
+
+
+dicionarioApp.config(function ($httpProvider) {
+    $httpProvider.interceptors.push("tokenInterceptor");
 
 });

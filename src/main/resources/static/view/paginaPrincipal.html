@@ -5,29 +5,31 @@
             <input type="text" id="textBusca" class="form-control" placeholder="Buscar..." ng-model="busca"/>
         </div>
 
-        <table class="table col-md-6" style= "margin-top:40px; width: 100px">
-            <thead>
-            <tr>
+        <div class="row">
+            <table class="table col-md-6" style= "margin-top:40px; ">
+                <thead>
+                <tr>
 
-            <th data-field="palavra">Palavra</th>
-            <th data-field="significado">Significado</th>
+                    <th data-field="palavra">Palavra</th>
+                    <th data-field="significado">Significado</th>
 
-            </tr>
+                </tr>
 
-            </thead>
-            <tbody>
-            <tr ng-repeat="palavra in palavras | orderBy : 'palavra'| filter:busca">
+                </thead>
+                <tbody>
+                <tr ng-repeat="palavra in palavras | orderBy : 'palavra'| filter:busca">
 
 
-                <td >{{palavra.palavra}}</td>
-                <td >{{palavra.significado}}</td>
-                <td > <a ng-click="editar(palavra.id)"> <i class="fa fa-pencil" aria-hidden="true"></i></a> </td>
-                <td > <a ng-click="excluir(palavra.id)"> <i class="fa fa-trash" aria-hidden="true"></i></a> </td>
-            </tr>
+                    <td >{{palavra.palavra}}</td>
+                    <td >{{palavra.significado}}</td>
+                    <td > <a ng-click="editar(palavra.id)"> <i class="fa fa-pencil" aria-hidden="true"></i></a> </td>
+                    <td > <a ng-click="excluir(palavra.id)"> <i class="fa fa-trash" aria-hidden="true"></i></a> </td>
+                </tr>
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
 
+        </div>
 
 
         <!-- Button trigger modal -->

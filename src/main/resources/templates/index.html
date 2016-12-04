@@ -1,7 +1,7 @@
 <html ng-app="dicionarioApp" >
 
 <head>
-    <!--<base href="/" />-->
+    <base href="/" />
     <title>Dicionario</title>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -18,8 +18,10 @@
 
 
     <script src="./js/app.js"></script>
+    <script src="./js/token-interceptor.js"></script>
     <script src="./js/data-service.js"></script>
     <script src="./js/controller/index-controller.js"></script>
+    <script src="./js/controller/loginController.js"></script>
     <script src="./js/controller/paginaPrincipal-controller.js"></script>
     <script src="./js/controller/usuario-controller.js"></script>
     <script src="./js/controller/inserirControle.js"></script>
@@ -33,9 +35,9 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#/pagina-principal">Home <span class="sr-only">(current)</span></a></li>
-                <li id="cadUsuario"><a href="#/cad-usuario">Cadastar Usuário</a></li>
-                <li><a href="#">Sair</a></li>
+                <li class="active"><a href="/pagina-principal">Home <span class="sr-only">(current)</span></a></li>
+                <li id="cadUsuario"><a href="/cad-usuario">Cadastar Usuário</a></li>
+                <li><button ng-click="sair()">Sair</button></li>
             </ul>
         </div>
     </nav>

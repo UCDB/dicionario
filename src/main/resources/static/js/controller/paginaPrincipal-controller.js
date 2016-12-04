@@ -11,7 +11,7 @@ dicionarioApp.controller("paginaInicial-controller",['$scope', '$location','$htt
 
     function carregaPalavras(){
 
-        $http.get("/dicionario").then(
+        $http.get("/adm/dicionario").then(
             function (response) {
                 $scope.palavras = response.data;
 
@@ -36,7 +36,7 @@ dicionarioApp.controller("paginaInicial-controller",['$scope', '$location','$htt
 
     $scope.excluir = function (id) {
 
-        $http.delete("/dicionario/"+id).then(
+        $http.delete("/adm/dicionario/"+id).then(
             function (response) {
                 window.alert("Excluido ");
                 carregaPalavras();

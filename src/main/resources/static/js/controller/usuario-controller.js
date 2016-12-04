@@ -10,7 +10,7 @@ dicionarioApp.controller("usuarioController", function($scope,$http,$location,da
 
     //busca os usuarios cadastrados no banco e mostra na tabela
     $scope.carregarLista = function() {
-        $http.get("/usuario").then(
+        $http.get("/adm/usuario").then(
             function (response) {
                 $scope.usuarios = response.data;
 
@@ -29,7 +29,7 @@ dicionarioApp.controller("usuarioController", function($scope,$http,$location,da
 
             if($scope.usuario.id == null){
 
-            $http.post("/usuario", $scope.usuario).then(
+            $http.post("/adm/usuario", $scope.usuario).then(
                 function (response) {
                     window.alert("Cadastrado ");
                     $scope.usuario = {};
@@ -39,7 +39,7 @@ dicionarioApp.controller("usuarioController", function($scope,$http,$location,da
                     window.alert("Erro ");
                 });
         }else{
-                $http.put("/usuario", $scope.usuario).then(
+                $http.put("/adm/usuario", $scope.usuario).then(
                     function (response) {
                         window.alert("Alterado com sucesso ");
                         $scope.usuario = {};
@@ -77,7 +77,7 @@ dicionarioApp.controller("usuarioController", function($scope,$http,$location,da
     };
 
     $scope.excluir = function (id) {
-        $http.delete("/usuario/"+id).then(
+        $http.delete("/adm/usuario/"+id).then(
             function (response) {
                 window.alert("Excluido com sucesso ");
                 $scope.carregarLista();

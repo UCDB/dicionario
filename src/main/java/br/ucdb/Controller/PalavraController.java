@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import java.util.List;
 
 @RestController
+@RequestMapping("/adm")
 public class PalavraController {
 
 

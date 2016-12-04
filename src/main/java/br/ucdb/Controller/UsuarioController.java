@@ -14,7 +14,7 @@ import java.util.List;
 
 
 @RestController
-//@RequestMapping("/admin")
+@RequestMapping("/adm")
 public class UsuarioController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PalavraController.class);

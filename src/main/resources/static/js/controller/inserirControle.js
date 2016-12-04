@@ -15,7 +15,7 @@ dicionarioApp.controller("inserir-controller",['$scope', '$location','dataShare'
 
         if ($scope.palavra.id == null){
 
-            $http.post("/dicionario", $scope.palavra).then(
+            $http.post("/adm/dicionario", $scope.palavra).then(
                 function (response) {
                     window.alert("Cadastrado ");
                     $location.path("/pagina-principal");
@@ -27,7 +27,7 @@ dicionarioApp.controller("inserir-controller",['$scope', '$location','dataShare'
         }else{
 
 
-            $http.put("/dicionario", $scope.palavra).then(
+            $http.put("/adm/dicionario", $scope.palavra).then(
                 function (response) {
                     window.alert("Editado com sucesso ");
                     $location.path("/pagina-principal");

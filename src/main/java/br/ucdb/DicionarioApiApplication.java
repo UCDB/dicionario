@@ -13,7 +13,7 @@ public class DicionarioApiApplication {
 	public FilterRegistrationBean filtroJwt(){
 		FilterRegistrationBean frb = new FilterRegistrationBean();
 		frb.setFilter(new TokenFilter());
-		frb.addUrlPatterns("/admin/*");
+		frb.addUrlPatterns("/adm/*");
 
 		return frb;
 	}
