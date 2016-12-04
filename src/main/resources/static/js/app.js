@@ -2,6 +2,8 @@ var dicionarioApp = angular.module("dicionarioApp",['ngRoute']);
 
 dicionarioApp.config(function ($routeProvider,$locationProvider ) {
 
+
+
     $routeProvider
 
         .when("/cad-usuario",{

@@ -42,7 +42,10 @@
             <input type="text" id="senha" placeholder="Senha" ng-model="usuario.senha"/>
         </fieldset>
 
-        <input type="button" ng-click="autenticar()" value="entrar" id="button_login" class="button"/>
+        <button ng-click="autenticar()" class="button" >Entrar <i class="fa fa-spinner fa-pulse fa-1x fa-fw" ng-show="visualizar"></i></button>
+
+
+
 
     </div>
 </form>

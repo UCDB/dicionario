@@ -10,6 +10,7 @@ dicionarioApp.controller("usuarioController", function($scope,$http,$location,da
 
     //busca os usuarios cadastrados no banco e mostra na tabela
     $scope.carregarLista = function() {
+        $scope.usuarios=[];
         $http.get("/adm/usuario").then(
             function (response) {
                 $scope.usuarios = response.data;

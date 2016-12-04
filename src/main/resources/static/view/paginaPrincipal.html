@@ -1,23 +1,33 @@
 <div class="container">
-    <section style="width:100%">
+    <section class="row">
 
-        <div id="divBusca" class="col-sm-3">
+        <div id="divBusca" class="col-sm-6">
             <input type="text" id="textBusca" class="form-control" placeholder="Buscar..." ng-model="busca"/>
         </div>
+        <!-- Button trigger modal -->
+        <div class="col-sm-6">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" ng-click="cadPalavra()">
+                Nova palavra
+            </button>
+        </div>
+        <div class="row"></div>
 
-        <div class="row">
-            <table class="table col-md-6" style= "margin-top:40px; ">
+
+        <div class="col-sm-6">
+            <table class="table table-bordered " style= "margin-top:40px; ">
                 <thead>
                 <tr>
 
                     <th data-field="palavra">Palavra</th>
                     <th data-field="significado">Significado</th>
+                    <th></th>
+                    <th></th>
 
                 </tr>
 
                 </thead>
                 <tbody>
-                <tr ng-repeat="palavra in palavras | orderBy : 'palavra'| filter:busca">
+                <tr ng-repeat="palavra in palavras | orderBy : 'palavra'| filter:busca" ng-click="info(palavra)">
 
 
                     <td >{{palavra.palavra}}</td>
@@ -32,10 +42,16 @@
         </div>
 
 
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" ng-click="cadPalavra()">
-            Nova palavra
-        </button>
+
+        <div class="col-sm-6" ng-model="informacoes" style="margin-top: 35px;">
+           <label>Palavra: </label> {{informacoes.palavra}}
+            <br/>
+            <label>Tradução: </label><br/>{{informacoes.significado}}
+
+        </div>
+
+
+
 
 
     </section>

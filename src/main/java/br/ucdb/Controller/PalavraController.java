@@ -2,6 +2,7 @@ package br.ucdb.Controller;
 
 
 import br.ucdb.Repository.DicionarioRepository;
+import br.ucdb.exception.BaseException;
 import br.ucdb.model.Dicionario;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,51 +25,51 @@ public class PalavraController {
     DicionarioRepository dicionarioRepository;
 
    @PostMapping("/dicionario")
-    public ResponseEntity<Dicionario> cadastrarPalavra(@RequestBody Dicionario palavra) throws ServletException{
+    public ResponseEntity<Dicionario> cadastrarPalavra(@RequestBody Dicionario palavra) {
 
         if(dicionarioRepository.buscaPalavra(palavra.getPalavra()) == null){
             return new ResponseEntity<Dicionario>(dicionarioRepository.save(palavra), HttpStatus.OK);
         }else {
             LOGGER.error("Erro - Palavra ja Cadastrada");
-            throw  new ServletException("Palavra ja Cadastrada");
+            throw  new BaseException("Palavra ja Cadastrada");
         }
     }
 
     @GetMapping ("/dicionario")
-    public List<Dicionario> buscarTodasPalavras() throws ServletException{
+    public List<Dicionario> buscarTodasPalavras() {
         if(! dicionarioRepository.findAll().isEmpty()){
             return dicionarioRepository.findAll();
         }else
             LOGGER.error("Erro - Erro ao Buscar Palavras");
-            throw new ServletException("Erro ao Buscar Palavras");
+            throw new BaseException("Erro ao Buscar Palavras");
 
     }
 
     @DeleteMapping("/dicionario/{id}")
-    public void excluirPalavra(@PathVariable Integer id) throws ServletException{
+    public void excluirPalavra(@PathVariable Integer id) {
         try {
             dicionarioRepository.delete(id);
         }catch (Exception ex){
             LOGGER.error("Erro - Erro ao deletar palavra");
-            throw new ServletException("Erro ao deletar palavra");
+            throw new BaseException("Erro ao deletar palavra");
         }
     }
 
     @GetMapping("/dicionario/{palavra}")
-    private ResponseEntity<Dicionario> buscaPalvra(@PathVariable String palavra) throws ServletException {
+    private ResponseEntity<Dicionario> buscaPalvra(@PathVariable String palavra) {
         if(dicionarioRepository.buscaPalavra(palavra) != null) {
             return new ResponseEntity<Dicionario>(dicionarioRepository.buscaPalavra(palavra), HttpStatus.OK);
         }else
-            throw new ServletException("Palavra não encontrada !");
+            throw new BaseException("Palavra não encontrada !");
     }
 
     @PutMapping("/dicionario")
-    public ResponseEntity<Dicionario> atualizaPalavra(@RequestBody Dicionario palavra) throws ServletException{
+    public ResponseEntity<Dicionario> atualizaPalavra(@RequestBody Dicionario palavra){
         try {
             return new ResponseEntity<Dicionario>(dicionarioRepository.save(palavra), HttpStatus.OK);
         }catch (Exception e){
             LOGGER.error("Erro - Erro ao atualizar cadastro da palavra");
-            throw new ServletException("Erro ao atualizar palavra");
+            throw new BaseException("Erro ao atualizar palavra");
         }
     }
 }

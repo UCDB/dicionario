@@ -2,10 +2,10 @@ dicionarioApp.controller("mainController",['$scope', '$location', function ($sco
 
     $location.path("/pagina-principal");
 
-    $scope.sair = function () {
+     $scope.sair = function () {
         localStorage.setItem("userToken","");
         window.location.replace("/login");
-    }
+    };
 
 
 }]);

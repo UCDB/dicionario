@@ -1,6 +1,7 @@
 package br.ucdb.Controller;
 
 import br.ucdb.Repository.UsuarioRepository;
+import br.ucdb.exception.BaseException;
 import br.ucdb.model.Usuario;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,16 +24,16 @@ public class UsuarioController {
     UsuarioRepository usuarioRepository;
 
     @PostMapping("/usuario")
-    public ResponseEntity<Usuario> cadastrarUsuario(@RequestBody Usuario usuario) throws ServletException {
+    public ResponseEntity<Usuario> cadastrarUsuario(@RequestBody Usuario usuario) {
 
         if(usuario == null){
             LOGGER.error("Erro - Dados de usuário inexistentes");
-            throw new ServletException("Dados de usuário inexistentes ");
+            throw new BaseException("Dados de usuário inexistentes ");
         }
 
         if(usuarioRepository.buscaCpf(usuario.getCpf()) != null){
             LOGGER.error("Erro - Usuário já cadastrado");
-            throw new ServletException("Usuário já cadastrado");
+            throw new BaseException("Usuário já cadastrado");
 
         }
 
@@ -41,10 +42,10 @@ public class UsuarioController {
     }
 
     @GetMapping("/usuario")
-    public List<Usuario> buscarTodos() throws ServletException{
+    public List<Usuario> buscarTodos() {
 
         if(usuarioRepository.findAll().isEmpty()){
-            throw new ServletException("Não ha usuários cadastrados");
+            throw new BaseException("Não ha usuários cadastrados");
         }
 
         return usuarioRepository.findAll();
@@ -52,30 +53,30 @@ public class UsuarioController {
     }
 
     @GetMapping("/usuario/{cpf}")
-    public ResponseEntity<Usuario> buscaCpf(@PathVariable String cpf) throws ServletException{
+    public ResponseEntity<Usuario> buscaCpf(@PathVariable String cpf) {
 
         if(usuarioRepository.buscaCpf(cpf) == null){
-            throw new  ServletException("Usuário nao encontrado");
+            throw new  BaseException("Usuário nao encontrado");
         }
 
         return new ResponseEntity<Usuario>(usuarioRepository.buscaCpf(cpf), HttpStatus.OK);
     }
 
     @DeleteMapping("/usuario/{id}")
-    public void excluirUsuario(@PathVariable Integer id) throws ServletException{
+    public void excluirUsuario(@PathVariable Integer id){
         try {
             usuarioRepository.delete(id);
         }catch (Exception ex){
             LOGGER.error("Erro - Erro ao deletar usuario");
-            throw new ServletException("Erro ao deletar usuario");
+            throw new BaseException("Erro ao deletar usuario");
         }
     }
 
     @PutMapping("/usuario")
-    public ResponseEntity<Usuario> atualizarCadastro(@RequestBody Usuario usuario) throws ServletException{
+    public ResponseEntity<Usuario> atualizarCadastro(@RequestBody Usuario usuario){
 
         if(usuario == null){
-            throw new ServletException("Dados de Usuário inexistentes");
+            throw new BaseException("Dados de Usuário inexistentes");
         }
         return new ResponseEntity<Usuario>(usuarioRepository.save(usuario), HttpStatus.OK);
 

@@ -10,6 +10,7 @@ dicionarioApp.controller("paginaInicial-controller",['$scope', '$location','$htt
 
 
     function carregaPalavras(){
+        $scope.palavras = [];
 
         $http.get("/adm/dicionario").then(
             function (response) {
@@ -31,6 +32,10 @@ dicionarioApp.controller("paginaInicial-controller",['$scope', '$location','$htt
 
             }
         }
+    };
+
+    $scope.info = function (palavara) {
+      $scope.informacoes =   palavara;
     };
 
 
