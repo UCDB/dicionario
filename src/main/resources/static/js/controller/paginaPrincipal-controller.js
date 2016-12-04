@@ -18,7 +18,8 @@ dicionarioApp.controller("paginaInicial-controller",['$scope', '$location','$htt
             },function (response) {
                 alert('Erro ao buscar palavras !');
             });
-    }
+    };
+
 
     $scope.editar = function (id) {
 
@@ -43,7 +44,7 @@ dicionarioApp.controller("paginaInicial-controller",['$scope', '$location','$htt
 
                 window.alert("Erro ");
             });
-    }
+    };
 
 
 

@@ -5,12 +5,10 @@
             <input type="text" id="textBusca" class="form-control" placeholder="Buscar..." ng-model="busca"/>
         </div>
 
-
-
-        <table class="table" style= "margin-top:40px;">
+        <table class="table col-md-6" style= "margin-top:40px; width: 100px">
             <thead>
             <tr>
-            <th data-field="id">ID</th>
+
             <th data-field="palavra">Palavra</th>
             <th data-field="significado">Significado</th>
 
@@ -20,7 +18,7 @@
             <tbody>
             <tr ng-repeat="palavra in palavras | orderBy : 'palavra'| filter:busca">
 
-                <td >{{palavra.id}} </td>
+
                 <td >{{palavra.palavra}}</td>
                 <td >{{palavra.significado}}</td>
                 <td > <a ng-click="editar(palavra.id)"> <i class="fa fa-pencil" aria-hidden="true"></i></a> </td>
@@ -29,6 +27,8 @@
 
             </tbody>
         </table>
+
+
 
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" ng-click="cadPalavra()">

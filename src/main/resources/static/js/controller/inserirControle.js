@@ -13,7 +13,7 @@ dicionarioApp.controller("inserir-controller",['$scope', '$location','dataShare'
 
     $scope.cadastrarPalavra = function () {
 
-        if ($scope.palavra.id ==null){
+        if ($scope.palavra.id == null){
 
             $http.post("/dicionario", $scope.palavra).then(
                 function (response) {
