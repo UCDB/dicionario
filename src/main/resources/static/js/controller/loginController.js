@@ -1,4 +1,4 @@
-dicionarioApp.controller('loginController', function($scope, $http,$location) {
+dicionarioApp.controller('loginController', function($scope, $http,$location,toastr) {
 
     $scope.usuario={};
 
@@ -19,6 +19,7 @@ dicionarioApp.controller('loginController', function($scope, $http,$location) {
 
         }, function (response) {
                 $scope.visualizar= "";
+
             alert("Falha: " + response.data.message)
         });
     };

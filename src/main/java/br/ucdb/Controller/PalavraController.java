@@ -31,7 +31,7 @@ public class PalavraController {
             return new ResponseEntity<Dicionario>(dicionarioRepository.save(palavra), HttpStatus.OK);
         }else {
             LOGGER.error("Erro - Palavra ja Cadastrada");
-            throw  new BaseException("Palavra ja Cadastrada");
+            throw  new BaseException("Palavra já Cadastrada !");
         }
     }
 
@@ -41,7 +41,7 @@ public class PalavraController {
             return dicionarioRepository.findAll();
         }else
             LOGGER.error("Erro - Erro ao Buscar Palavras");
-            throw new BaseException("Erro ao Buscar Palavras");
+            throw new BaseException("Nenhuma palavra cadastrada !");
 
     }
 
@@ -51,7 +51,7 @@ public class PalavraController {
             dicionarioRepository.delete(id);
         }catch (Exception ex){
             LOGGER.error("Erro - Erro ao deletar palavra");
-            throw new BaseException("Erro ao deletar palavra");
+            throw new BaseException("Erro ao deletar palavra !");
         }
     }
 
@@ -69,7 +69,7 @@ public class PalavraController {
             return new ResponseEntity<Dicionario>(dicionarioRepository.save(palavra), HttpStatus.OK);
         }catch (Exception e){
             LOGGER.error("Erro - Erro ao atualizar cadastro da palavra");
-            throw new BaseException("Erro ao atualizar palavra");
+            throw new BaseException("Erro ao atualizar palavra !");
         }
     }
 }

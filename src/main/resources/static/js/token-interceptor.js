@@ -8,6 +8,7 @@ dicionarioApp.factory("tokenInterceptor",function ($q) {
         },
         'responseError': function (rejection) {
             if (rejection.status == 401) {
+
                 window.location.replace("/login");
             }
             return $q.reject(rejection);

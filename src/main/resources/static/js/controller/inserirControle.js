@@ -1,4 +1,4 @@
-dicionarioApp.controller("inserir-controller",['$scope', '$location','dataShare','$http', function ($scope, $location,dataShare,$http) {
+dicionarioApp.controller("inserir-controller",['$scope', '$location','dataShare','$http','toastr', function ($scope, $location,dataShare,$http,toastr) {
 
     if(dataShare.getData()){
         $scope.palavra = dataShare.getData();
@@ -17,11 +17,12 @@ dicionarioApp.controller("inserir-controller",['$scope', '$location','dataShare'
 
             $http.post("/adm/dicionario", $scope.palavra).then(
                 function (response) {
-                    window.alert("Cadastrado ");
+
+                    toastr.success("Palavra Cadastrada !");
                     $location.path("/pagina-principal");
                 }, function erro(response) {
+                    toastr.error(response.data.message,"Erro");
 
-                    window.alert("Erro ");
                 });
 
         }else{
@@ -29,11 +30,12 @@ dicionarioApp.controller("inserir-controller",['$scope', '$location','dataShare'
 
             $http.put("/adm/dicionario", $scope.palavra).then(
                 function (response) {
-                    window.alert("Editado com sucesso ");
+
+                    toastr.success("Palavra Editada !");
                     $location.path("/pagina-principal");
                 }, function erro(response) {
 
-                    window.alert("Erro ");
+                    toastr.error(response.data.message,"Erro");
                 });
 
         }

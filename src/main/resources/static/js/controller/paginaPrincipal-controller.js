@@ -1,4 +1,4 @@
-dicionarioApp.controller("paginaInicial-controller",['$scope', '$location','$http','dataShare', function ($scope, $location,$http,dataShare) {
+dicionarioApp.controller("paginaInicial-controller",['$scope', '$location','$http','dataShare','toastr', function ($scope, $location,$http,dataShare,toastr) {
 
     $scope.palavras = [];
 
@@ -11,15 +11,15 @@ dicionarioApp.controller("paginaInicial-controller",['$scope', '$location','$htt
 
     function carregaPalavras(){
         $scope.palavras = [];
-
+        $scope.informacoes ="";
         $http.get("/adm/dicionario").then(
             function (response) {
                 $scope.palavras = response.data;
 
             },function (response) {
-                alert('Erro ao buscar palavras !');
+                toastr.error(response.data.message,"Erro");
             });
-    };
+    }
 
 
     $scope.editar = function (id) {
@@ -43,11 +43,12 @@ dicionarioApp.controller("paginaInicial-controller",['$scope', '$location','$htt
 
         $http.delete("/adm/dicionario/"+id).then(
             function (response) {
-                window.alert("Excluido ");
                 carregaPalavras();
+                toastr.success("Excluido","OK");
+
             }, function erro(response) {
 
-                window.alert("Erro ");
+                toastr.error(response.data.message,"Erro");
             });
     };
 

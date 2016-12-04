@@ -1,4 +1,4 @@
-dicionarioApp.controller("usuarioController", function($scope,$http,$location,dataShare){
+dicionarioApp.controller("usuarioController", function($scope,$http,$location,dataShare,toastr){
     //$scope.usuarios =[];
 
 
@@ -17,7 +17,7 @@ dicionarioApp.controller("usuarioController", function($scope,$http,$location,da
 
             }, function erro(response) {
 
-                window.alert("Erro ao carregar dados");
+                toastr.error(response.data.message,"Erro");
             });
     };
 
@@ -32,21 +32,22 @@ dicionarioApp.controller("usuarioController", function($scope,$http,$location,da
 
             $http.post("/adm/usuario", $scope.usuario).then(
                 function (response) {
-                    window.alert("Cadastrado ");
+                    toastr.success("Usuário Cadastrado !","OK");
                     $scope.usuario = {};
                     $scope.carregarLista();
+                    $scope.visualizar = "";
                 }, function erro(response) {
 
-                    window.alert("Erro ");
+                    toastr.error(response.data.message,"Erro");
                 });
         }else{
                 $http.put("/adm/usuario", $scope.usuario).then(
                     function (response) {
-                        window.alert("Alterado com sucesso ");
+                        toastr.success("Usuário Editado !","OK");
                         $scope.usuario = {};
                         $scope.carregarLista();
-                    }, function erro(response) {
-                        window.alert("Erro ");
+                    }, function (response) {
+                        toastr.error(response.data.message,"Erro");
                     });
             }
 
@@ -80,10 +81,10 @@ dicionarioApp.controller("usuarioController", function($scope,$http,$location,da
     $scope.excluir = function (id) {
         $http.delete("/adm/usuario/"+id).then(
             function (response) {
-                window.alert("Excluido com sucesso ");
+                toastr.success("Usuário Excluido !","OK");
                 $scope.carregarLista();
             }, function erro(response) {
-                window.alert("Erro ");
+                toastr.error(response.data.message,"Erro");
             });
     };
 
